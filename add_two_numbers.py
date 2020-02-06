@@ -6,10 +6,13 @@ E: 7 > 2 > 1  + 4 > 7 = 1 > 0 > 2
 D:Node, linked list, int
 
 A:  Given two linked lists
-    Declare a root node, the carry over number and a pointer to the root node
-    loop over the linked lists while they have numbers
-    get the sum of each place in the list + whatever carries over from the previous sum
-    
+    Declare a root node variable ,a carry over variable and a pointer variable to the root node
+        loop over the linked lists while they are truthy
+            get the sum of each place in the list +  carry over over from the previous sum
+        add data to next spot in list
+    if anything left in carry over when both lists have no node
+        final node = carry over
+    return root node of new list
 
 '''
 
@@ -28,9 +31,9 @@ def print_all_nodes(node:Node):
         current = current.next
     
 def add_two_numbers(num1: Node, num2: Node) -> Node:
-    root = Node((num1.data + num2.data) % 10)
+    root_node = Node((num1.data + num2.data) % 10)
     carry_over = (num1.data + num2.data) // 10
-    node_holder = root
+    node_holder = root_node
     while num1.next or num2.next:
         sum = (num1.next.data if num1.next else 0) + (num2.next.data if num2.next else 0) + carry_over
         node_holder.next = Node(sum % 10)
@@ -40,9 +43,9 @@ def add_two_numbers(num1: Node, num2: Node) -> Node:
             num2 = num2.next
         node_holder = node_holder.next
         carry_over = sum // 10
-    if carry:
+    if carry_over:
         node.next = Node(carry_over)
-    return root
+    return root_node
 
 
 l1 = Node(3)
