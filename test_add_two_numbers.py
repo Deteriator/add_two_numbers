@@ -1,7 +1,7 @@
 import pytest
 from add_two_numbers import *
 
-@pytest.mark.skip()
+
 def test_add_two_numbers():
     l1 = Node(3)
     l1.next = Node(2)
@@ -17,7 +17,6 @@ def test_add_two_numbers():
     assert sum_list.next.data == 3
     assert sum_list.next.next.data == 2
 
-@pytest.mark.skip()
 def test_add_with_carry():
     l1 = Node(7)
     l1.next = Node(2)
@@ -30,4 +29,4 @@ def test_add_with_carry():
 
     assert sum_list.data == 1
     assert sum_list.next.data == 0
-    assert sum_list.next.next.data == 7
+    assert sum_list.next.next.data == 2
